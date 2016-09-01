@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import Appbar from 'muicss/lib/react/appbar';
 import ReactGridLayout from 'react-grid-layout';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
 
 class App extends Component {
   render() {
@@ -13,14 +14,27 @@ class App extends Component {
     ];
 
     return (
-      <div>
-        <Appbar><h1>cborg face</h1></Appbar>
-        <ReactGridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
-          <div key={'a'}><div style={{backgroundColor:'blue', height: "100%"}}>a</div></div>
-          <div key={'b'}><div style={{backgroundColor:'yellow', height: "100%"}}>b</div></div>
-          <div key={'c'}><div style={{backgroundColor:'red', height: "100%"}}>c</div></div>
-        </ReactGridLayout>
-      </div>
+      <MuiThemeProvider>
+        <div>
+          <AppBar
+            title="Dashboarding"
+            iconClassNameRight="muidocs-icon-navigation-expand-more"
+          />
+          <div>
+            <ReactGridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
+              <div key={'a'}>
+                <div style={{backgroundColor: 'blue', height: "100%"}}>a</div>
+              </div>
+              <div key={'b'}>
+                <div style={{backgroundColor: 'yellow', height: "100%"}}>b</div>
+              </div>
+              <div key={'c'}>
+                <div style={{backgroundColor: 'red', height: "100%"}}>c</div>
+              </div>
+            </ReactGridLayout>
+          </div>
+        </div>
+      </MuiThemeProvider>
 
     );
   }
